@@ -1,0 +1,2 @@
+START ENV: ./venv/Scripts/activate 
+RUN PROJECT: flask run
