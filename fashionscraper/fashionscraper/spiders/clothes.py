@@ -1,5 +1,4 @@
 import scrapy
-from twisted.internet import reactor
 from ..items import ClothesItem
 
 class ClothesSpider(scrapy.Spider):

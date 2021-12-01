@@ -34,8 +34,7 @@ def scrape_with_crochet(q):
     # This will connect to the dispatcher that will kind of loop the code between these two functions.
         dispatcher.connect(_crawler_result, signal=signals.item_scraped)
     # This will connect to the ReviewspiderSpider function in our scrapy file and after each yield will pass to the crawler_result function.
-        eventual = crawl_runner.crawl(ClothesSpider, q = q)
-        print("Heyyyy", eventual)
+        crawl_runner.crawl(ClothesSpider, q = q)
         #return eventual
     except: 
         return "Error!", 500
