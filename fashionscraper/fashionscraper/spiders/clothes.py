@@ -10,10 +10,10 @@ class ClothesSpider(scrapy.Spider):
         # if urls:
         #     self.start_urls = urls.split(',')
         # self.logger.info(self.start_urls)
-        print(q)
+        
         self.start_urls.append("https://www.asos.com/it/search/?q=" + q)
         self.start_urls.append("https://www.aboutyou.it/ricerca?term=" + q)
-        print(self.start_urls)
+        
         super().__init__(**kwargs)
         
 
@@ -26,14 +26,13 @@ class ClothesSpider(scrapy.Spider):
                 for prd in products: 
                     yield scrapy.Request(url = prd, callback = self.parseasos) #exec a request for each link in the page
             elif 'aboutyou' in response.request.url:
-                print(response.request.url)
+                
                 products = []
                 products = [*response.css(".sc-163x4qs-0::attr(href)").getall()]
-                # products.append(**response.css(".sc-163x4qs-0::attr(href)").getall()) 
-                print(products)
+                
                 for prd in products:
                     prd = "https://www.aboutyou.it" + prd
-                    print(prd)
+                    
                     yield scrapy.Request(url = prd, callback=self.parseabout)
         
 
