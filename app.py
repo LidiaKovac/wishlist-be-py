@@ -23,9 +23,9 @@ def scrape(query:str):
 
     scrape_with_crochet(q=query) # Passing that URL to our Scraping Function
 
-    time.sleep(12) # Pause the function while the scrapy spider is running
+    time.sleep(10) # Pause the function while the scrapy spider is running
     
-    return jsonify({"q":query, "r":OUTPUT}) # Returns the scraped data after being running for 20 seconds.
+    return jsonify({"q":query, "r":OUTPUT}),200 # Returns the scraped data after being running for 12 seconds.
   
   
 @crochet.run_in_reactor
@@ -41,27 +41,6 @@ def scrape_with_crochet(q):
 
 #This will append the data to the output data list.
 def _crawler_result(item, response, spider):
+    # print(response.request.url)
     OUTPUT.append(dict(item))
-# def get_clothes(query:str):
-#     run_scraper(query = query)
-#     time.sleep(20)
-#         # process = CrawlerRunner()
-#         # runner = process.crawl(ClothesSpider, q=query)
-#         # runner.addBoth(lambda _: reactor.stop())
-#         # reactor.run(installSignalHandlers=False) # the script will block here until the crawling is finished
-#         # process.start()
-#    
 
-
-# @crochet.run_in_reactor
-# def run_scraper(query):
-#     # This will connect to the dispatcher that will kind of loop the code between these two functions.
-#     dispatcher.connect(get_res, signal=signals.item_scraped)
-    
-#     # This will connect to the ClothesSpider function in our scrapy file and after each yield will pass to the crawler_result function.
-#     result = CrawlerRunner().crawl(ClothesSpider, q=query)
-#     return result
-
-# def get_res(item, response, spider): 
-#     print(item)
-#     OUTPUT.append(dict(item))
