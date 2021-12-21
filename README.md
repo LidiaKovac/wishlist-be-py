@@ -1,11 +1,11 @@
 # Wishlist - BE - Web Scraping
 
-- [ ] About You
+- [x] About You
 
 - [x] Asos
 
 - [ ] Bershka
 
-- [ ] Stradivarius
+- [ ] Stradivarius <<<<< will need some more work as it does not have a search results page / passable query
 
 - [ ] H&M

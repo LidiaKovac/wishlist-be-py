@@ -1,15 +1,12 @@
-import scrapy
+import os
 import crochet
 crochet.setup()
-from services import CrawlService
 from scrapy import signals
 from scrapy.crawler import CrawlerRunner
 from scrapy.signalmanager import dispatcher
-from twisted.internet import reactor
 from fashionscraper.fashionscraper.spiders.clothes import ClothesSpider
-from flask import Flask, json
-from flask import jsonify, request
-from threading import Thread
+from flask import Flask,send_from_directory, render_template, jsonify
+
 import time 
 
 
@@ -17,14 +14,16 @@ app = Flask(__name__)
 
 OUTPUT = []
 crawl_runner = CrawlerRunner()
-
+@app.route("/favicon.ico")
+def favicon():
+	return send_from_directory(os.path.join(app.root_path, 'static'),'favicon.ico',mimetype='image/vnd.microsof.icon')
 @app.route('/<string:query>')
 def scrape(query:str):
-
+    
     scrape_with_crochet(q=query) # Passing that URL to our Scraping Function
 
-    time.sleep(10) # Pause the function while the scrapy spider is running
-    
+    time.sleep(15) # Pause the function while the scrapy spider is running
+
     return jsonify({"q":query, "r":OUTPUT}),200 # Returns the scraped data after being running for 12 seconds.
   
   
