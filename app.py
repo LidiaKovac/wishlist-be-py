@@ -54,5 +54,6 @@ def scrape_with_crochet(q, p, store):
 
 #This will append the data to the output data list.
 def _crawler_result(item, response, spider):
-    print(item, "HELLO")
-    OUTPUT['results'].append((item))
+    print(item)
+    OUTPUT['results'].append(item['items'][0])
+    OUTPUT['total'] = str(item['total'])

@@ -43,7 +43,7 @@ class AsosSpider(scrapy.Spider):
 
     def parseitem(self, response, total):
         time.sleep(3)
-        results = []
+        results = {'items': [], 'total': total}
         if 'asos' in response.request.url:
             result = ClothesItem()  # build item for the JSON file
             result['title'] = response.xpath("//h1/text()").get()
@@ -54,8 +54,9 @@ class AsosSpider(scrapy.Spider):
                 result['id'] = 'ASOS' + response.url.split('prd/')[1].split('?clr')[0]
             else:
                 result['id'] = 'ASOS' + response.url.split('grp/')[1].split('?clr')[0]
-            result['store_total'] = total
-            results.append(result)
+            
+            results['total'] = total
+            results['items'].append(dict(result))
        
     
         return results  # return json file to be output
