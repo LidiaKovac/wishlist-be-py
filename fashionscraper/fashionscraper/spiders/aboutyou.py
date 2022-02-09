@@ -32,15 +32,7 @@ class AboutYouSpider(scrapy.Spider):
         # print(self.start_urls, 'bershka' in response.request.url )
         total = ''
         products = []
-        # if 'asos' in response.request.url:
-        #     products = [*products, *
-        #                 response.css("a._3TqU78D::attr(href)").getall()]
-        #     next = response.css('.XmcWz6U::text').get()
-        #     total = next.split('di ')[1].split(' prodotti')[0]
-            
-            # products.append(**)  #get all the links in the page
-            # for prd in products:
-            #     yield scrapy.Request(url = prd, callback = self.parseasos) #exec a request for each link in the page
+
         if 'aboutyou' in response.request.url:
             # products = []
             aboutyou = response.css(".sc-163x4qs-0::attr(href)").getall()
@@ -49,32 +41,15 @@ class AboutYouSpider(scrapy.Spider):
                 url = "https://www.aboutyou.it" + url
                 urls.append(url)
             products = [*urls, *products]
-        # if 'hm.com' in response.request.url:
-        #     hm = response.css("a.item-link::attr(href)").getall()
-        #     urls = []
-        #     for url in hm:
-        #         url = "https://www2.hm.com" + url
-        #         urls.append(url)
-        #     products = [*products, *urls]
+            total = response.css('span.sc-2ppbeb-0::text').get()
         
         for prd in products:
-            yield scrapy.Request(url=prd, callback=self.parseitem)
+            yield scrapy.Request(url=prd, callback=self.parseitem, cb_kwargs={'total' : total})
         # scrapy.Request(url=next, callback=self.parse)
 
-    def parseitem(self, response):
+    def parseitem(self, response, total):
         time.sleep(3)
-        results = []
-        # if 'asos' in response.request.url:
-        #     result = ClothesItem()  # build item for the JSON file
-        #     result['title'] = response.xpath("//h1/text()").get()
-        #     result['images'] = response.xpath(
-        #         "//img[starts-with(@src,'https://images.asos-media.com/products') and not(@class)]/@src").getall()
-        #     result['url'] = response.url
-        #     if response.url.split('prd/')[1].split('?clr')[0]:
-        #         result['id'] = 'ASOS' + response.url.split('prd/')[1].split('?clr')[0]
-        #     else:
-        #         result['id'] = 'ASOS' + response.url.split('grp/')[1].split('?clr')[0]
-        #     results.append(result)
+        results = {'items': [], 'total': total}
         if 'aboutyou' in response.request.url:
             result = ClothesItem()  # build item for the JSON file
             # results = []
@@ -83,6 +58,8 @@ class AboutYouSpider(scrapy.Spider):
                 "button div[data-testid='productImage'] img[data-testid='productImageView']::attr(src)").getall()
             result['url'] = response.url
             result['id'] = 'ABOUTYOU' + response.url.split('-')[-1]
-            results.append(result)
+
+            results['total'] = total
+            results['items'].append(dict(result))
 
         return results  # return json file to be output
