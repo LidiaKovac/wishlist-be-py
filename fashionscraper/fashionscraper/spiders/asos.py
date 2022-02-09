@@ -8,12 +8,12 @@ from ..items import ClothesItem
 from scrapy.utils.log import configure_logging
 
 
-class AboutYouSpider(scrapy.Spider):
+class AsosSpider(scrapy.Spider):
     # configure_logging({'LOG_FORMAT': '%(levelname)s: %(message)s'})
     logging.basicConfig(
         filename='log.txt', format='%(levelname)s: %(message)s', level=logging.DEBUG)
-    name = 'aboutyou'
-    allowed_domains = ['aboutyou.it']
+    name = 'asos'
+    allowed_domains = ['asos.com']
     start_urls = []
 
     def __init__(self, q='', p='', **kwargs):
@@ -23,7 +23,7 @@ class AboutYouSpider(scrapy.Spider):
         q = q
         p = p
         self.logger.info(self.start_urls)
-        self.start_urls = ['https://www.aboutyou.it/c/' + q + '?page=' + p ]
+        self.start_urls = ["https://www.asos.com/it/search/?q=" + q + "&page=" + p ]
 
         super().__init__(**kwargs)
 
@@ -32,36 +32,16 @@ class AboutYouSpider(scrapy.Spider):
         # print(self.start_urls, 'bershka' in response.request.url )
         total = ''
         products = []
-        # if 'asos' in response.request.url:
-        #     products = [*products, *
-        #                 response.css("a._3TqU78D::attr(href)").getall()]
-        #     next = response.css('.XmcWz6U::text').get()
-        #     total = next.split('di ')[1].split(' prodotti')[0]
-            
-            # products.append(**)  #get all the links in the page
-            # for prd in products:
-            #     yield scrapy.Request(url = prd, callback = self.parseasos) #exec a request for each link in the page
-        if 'aboutyou' in response.request.url:
-            # products = []
-            aboutyou = response.css(".sc-163x4qs-0::attr(href)").getall()
-            urls = []
-            for url in aboutyou:
-                url = "https://www.aboutyou.it" + url
-                urls.append(url)
-            products = [*urls, *products]
-        # if 'hm.com' in response.request.url:
-        #     hm = response.css("a.item-link::attr(href)").getall()
-        #     urls = []
-        #     for url in hm:
-        #         url = "https://www2.hm.com" + url
-        #         urls.append(url)
-        #     products = [*products, *urls]
-        
+        if 'asos' in response.request.url:
+            products = [*products, *
+                        response.css("a._3TqU78D::attr(href)").getall()]
+            next = response.css('.XmcWz6U::text').get()
+            total = next.split('di ')[1].split(' prodotti')[0]
         for prd in products:
-            yield scrapy.Request(url=prd, callback=self.parseitem)
+            yield scrapy.Request(url=prd, callback=self.parseitem, cb_kwargs={'total': total})
         # scrapy.Request(url=next, callback=self.parse)
 
-    def parseitem(self, response):
+    def parseitem(self, response, total):
         time.sleep(3)
         results = []
         if 'asos' in response.request.url:
@@ -74,6 +54,7 @@ class AboutYouSpider(scrapy.Spider):
                 result['id'] = 'ASOS' + response.url.split('prd/')[1].split('?clr')[0]
             else:
                 result['id'] = 'ASOS' + response.url.split('grp/')[1].split('?clr')[0]
+            result['store_total'] = total
             results.append(result)
        
     
