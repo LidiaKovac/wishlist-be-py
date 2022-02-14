@@ -2,6 +2,7 @@ import time
 from flask import Flask, send_from_directory, render_template, jsonify
 from fashionscraper.fashionscraper.spiders.aboutyou import AboutYouSpider
 from fashionscraper.fashionscraper.spiders.asos import AsosSpider
+from fashionscraper.fashionscraper.spiders.hm import HMSpider
 from fashionscraper.fashionscraper.spiders.shein import SheinSpider
 
 from scrapy.signalmanager import dispatcher
@@ -9,6 +10,8 @@ from scrapy.crawler import CrawlerRunner
 from scrapy import signals
 import os
 import crochet
+
+from fashionscraper.fashionscraper.spiders.subdued import SubduedSpider
 crochet.setup()
 
 
@@ -32,7 +35,7 @@ def scrape(store: str, query: str, page: str):  # store must be 'asos' or 'about
     # Passing that URL to our Scraping Function
     scrape_with_crochet(q=query, p=page, store=store)
 
-    time.sleep(60)  # Pause the function while the scrapy spider is running
+    time.sleep(600)  # Pause the function while the scrapy spider is running
     # print(OUTPUT)
     # Returns the scraped data after being running for 12 seconds.
     return jsonify(OUTPUT), 200
@@ -50,6 +53,10 @@ def scrape_with_crochet(q, p, store):
             crawl_runner.crawl(AboutYouSpider, q=q, p=p)
         elif store == 'shein':
             crawl_runner.crawl(SheinSpider, q=q, p=p)
+        elif store == 'hm':
+            crawl_runner.crawl(HMSpider, q = q, p=p)
+        elif store == 'subdued':
+            crawl_runner.crawl(SubduedSpider, q = q, p=p)
     except:
         return "Error!", 500
 

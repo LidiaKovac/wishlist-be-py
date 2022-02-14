@@ -6,6 +6,11 @@
 
 - [ ] Bershka
 
-- [ ] Stradivarius <<<<< will need some more work as it does not have a search results page / passable query
+- [ ] Stradivarius
 
-- [ ] H&M
+- [x] H&M
+
+- [x] Shein
+
+- [x] Subdued
+
