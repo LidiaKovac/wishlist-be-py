@@ -2,6 +2,7 @@ import time
 from flask import Flask, send_from_directory, render_template, jsonify
 from fashionscraper.fashionscraper.spiders.aboutyou import AboutYouSpider
 from fashionscraper.fashionscraper.spiders.asos import AsosSpider
+from fashionscraper.fashionscraper.spiders.ovs import OvsSpider
 from fashionscraper.fashionscraper.spiders.hm import HMSpider
 from fashionscraper.fashionscraper.spiders.shein import SheinSpider
 
@@ -57,6 +58,8 @@ def scrape_with_crochet(q, p, store):
             crawl_runner.crawl(HMSpider, q = q, p=p)
         elif store == 'subdued':
             crawl_runner.crawl(SubduedSpider, q = q, p=p)
+        elif store == 'ovs':
+            crawl_runner.crawl(OvsSpider, q = q, p=p)
     except:
         return "Error!", 500
 

@@ -4,7 +4,7 @@
 
 - [x] Asos
 
-- [ ] Bershka
+- [ ] Bershka >>>> disallowed by robots.txt
 
 - [ ] Stradivarius
 
@@ -14,3 +14,4 @@
 
 - [x] Subdued
 
+- [x] Ovs
