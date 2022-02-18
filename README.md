@@ -1,15 +1,17 @@
 # Wishlist - BE - Web Scraping
 
-- [ ] About You
+- [x] About You
 
 - [x] Asos
 
-- [ ] Bershka
+- [ ] Bershka >>>> disallowed by robots.txt
 
 - [ ] Stradivarius
 
-- [ ] H&M
+- [x] H&M
 
+- [x] Shein
 
+- [x] Subdued
 
-Hello! 
+- [x] Ovs
