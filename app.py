@@ -36,7 +36,7 @@ def scrape(store: str, query: str, page: str):  # store must be 'asos' or 'about
     # Passing that URL to our Scraping Function
     scrape_with_crochet(q=query, p=page, store=store)
 
-    time.sleep(600)  # Pause the function while the scrapy spider is running
+    time.sleep(300)  # Pause the function while the scrapy spider is running
     # print(OUTPUT)
     # Returns the scraped data after being running for 12 seconds.
     return jsonify(OUTPUT), 200
