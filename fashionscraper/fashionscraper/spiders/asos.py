@@ -23,7 +23,7 @@ class AsosSpider(scrapy.Spider):
         q = q
         p = p
         self.logger.info(self.start_urls)
-        self.start_urls = ["https://www.asos.com/it/search/?q=" + q + "&page=" + p ]
+        self.start_urls = ["http://api.scraperapi.com?api_key=62ce27a59623e37c01fb5647b67fef71&https://www.asos.com/it/search/?q=" + q + "&page=" + p ]
 
         super().__init__(**kwargs)
 
