@@ -15,6 +15,9 @@ class AsosSpider(scrapy.Spider):
     name = 'asos'
     allowed_domains = ['asos.com']
     start_urls = []
+    custom_settings = {
+        'HTTPPROXY_ENABLED': True
+    }
 
     def __init__(self, q='', p='', **kwargs):
         # urls = kwargs.pop('urls', [])
@@ -23,7 +26,7 @@ class AsosSpider(scrapy.Spider):
         q = q
         p = p
         self.logger.info(self.start_urls)
-        self.start_urls = ["http://api.scraperapi.com?api_key=62ce27a59623e37c01fb5647b67fef71&https://www.asos.com/it/search/?q=" + q + "&page=" + p ]
+        self.start_urls = ["https://www.asos.com/it/search/?q=" + q + "&page=" + p ]
 
         super().__init__(**kwargs)
 
@@ -38,7 +41,7 @@ class AsosSpider(scrapy.Spider):
             next = response.css('.XmcWz6U::text').get()
             total = next.split('di ')[1].split(' prodotti')[0]
         for prd in products:
-            yield scrapy.Request(url=prd, callback=self.parseitem, cb_kwargs={'total': total})
+            yield scrapy.Request(url=prd, callback=self.parseitem, cb_kwargs={'total': total}, meta={"proxy: http://scraperapi:62ce27a59623e37c01fb5647b67fef71@proxy-server.scraperapi.com:8001"})
         # scrapy.Request(url=next, callback=self.parse)
 
     def parseitem(self, response, total):
