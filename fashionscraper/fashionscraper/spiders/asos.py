@@ -1,6 +1,7 @@
 import logging
 from math import prod
 import time
+from cv2 import log
 import scrapy
 import random
 from fashionscraper.fashionscraper.settings import LOG_LEVEL
@@ -15,9 +16,6 @@ class AsosSpider(scrapy.Spider):
     name = 'asos'
     allowed_domains = ['asos.com']
     start_urls = []
-    custom_settings = {
-        'HTTPPROXY_ENABLED': True
-    }
 
     def __init__(self, q='', p='', **kwargs):
         # urls = kwargs.pop('urls', [])
@@ -26,12 +24,15 @@ class AsosSpider(scrapy.Spider):
         q = q
         p = p
         self.logger.info(self.start_urls)
-        self.start_urls = ["https://www.asos.com/it/search/?q=" + q + "&page=" + p ]
+        self.start_urls = [
+            "https://www.asos.com/it/search/?q=" + q + "&page=" + p]
 
         super().__init__(**kwargs)
 
 # note: * is the equivalent of js spread op
     def parse(self, response):
+        times = [3, 5, 12, 65, 2, 1.5, 8, 1.3, 55, 23, 5, 8, 2, 90]
+        time.sleep(times[random.randint(0, len(times) - 1)])
         # print(self.start_urls, 'bershka' in response.request.url )
         total = ''
         products = []
@@ -41,11 +42,14 @@ class AsosSpider(scrapy.Spider):
             next = response.css('.XmcWz6U::text').get()
             total = next.split('di ')[1].split(' prodotti')[0]
         for prd in products:
-            yield scrapy.Request(url=prd, callback=self.parseitem, cb_kwargs={'total': total}, meta={"proxy: http://scraperapi:62ce27a59623e37c01fb5647b67fef71@proxy-server.scraperapi.com:8001"})
+            times = [3, 5, 12, 65, 2, 1.5, 8, 1.3, 55, 23, 5, 8, 2, 90]
+            time.sleep(times[random.randint(0, len(times) - 1)])
+            yield scrapy.Request(url=prd, callback=self.parseitem, cb_kwargs={'total': total})
         # scrapy.Request(url=next, callback=self.parse)
 
     def parseitem(self, response, total):
-        time.sleep(3)
+        times = [3, 5, 12, 65, 2, 1.5, 8, 1.3, 55, 23, 5, 8, 2, 90]
+        time.sleep(times[random.randint(0, len(times) - 1)])
         results = {'items': [], 'total': total}
         if 'asos' in response.request.url:
             result = ClothesItem()  # build item for the JSON file
@@ -54,12 +58,13 @@ class AsosSpider(scrapy.Spider):
                 "//img[starts-with(@src,'https://images.asos-media.com/products') and not(@class)]/@src").getall()
             result['url'] = response.url
             if response.url.split('prd/')[1].split('?clr')[0]:
-                result['id'] = 'ASOS' + response.url.split('prd/')[1].split('?clr')[0]
+                result['id'] = 'ASOS' + \
+                    response.url.split('prd/')[1].split('?clr')[0]
             else:
-                result['id'] = 'ASOS' + response.url.split('grp/')[1].split('?clr')[0]
-            
+                result['id'] = 'ASOS' + \
+                    response.url.split('grp/')[1].split('?clr')[0]
+
             results['total'] = total
             results['items'].append(dict(result))
-       
-    
+
         return results  # return json file to be output

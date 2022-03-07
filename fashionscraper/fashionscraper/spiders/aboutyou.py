@@ -29,6 +29,8 @@ class AboutYouSpider(scrapy.Spider):
 
 # note: * is the equivalent of js spread op
     def parse(self, response):
+        times = [3, 5, 12, 65, 2, 1.5, 8, 1.3, 55, 23, 5, 8, 2, 90]
+        time.sleep(times[random.randint(0, len(times) - 1)])
         # print(self.start_urls, 'bershka' in response.request.url )
         total = ''
         products = []
@@ -44,11 +46,14 @@ class AboutYouSpider(scrapy.Spider):
             total = response.css('span.sc-2ppbeb-0::text').get()
         
         for prd in products:
+            times = [3, 5, 12, 65, 2, 1.5, 8, 1.3, 55, 23, 5, 8, 2, 90]
+            time.sleep(times[random.randint(0, len(times) - 1)])
             yield scrapy.Request(url=prd, callback=self.parseitem, cb_kwargs={'total' : total})
         # scrapy.Request(url=next, callback=self.parse)
 
     def parseitem(self, response, total):
-        time.sleep(3)
+        times = [3, 5, 12, 65, 2, 1.5, 8, 1.3, 55, 23, 5, 8, 2, 90]
+        time.sleep(times[random.randint(0, len(times) - 1)])
         results = {'items': [], 'total': total}
         if 'aboutyou' in response.request.url:
             result = ClothesItem()  # build item for the JSON file

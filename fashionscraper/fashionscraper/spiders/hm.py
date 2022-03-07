@@ -4,7 +4,7 @@ import time
 from urllib import request
 from flask import jsonify
 import scrapy
-import requests
+import random
 from fashionscraper.fashionscraper.settings import LOG_LEVEL
 from ..items import ClothesItem
 from scrapy.utils.log import configure_logging
@@ -32,6 +32,8 @@ class HMSpider(scrapy.Spider):
 
 # note: * is the equivalent of js spread op
     def parse(self, response):
+        times = [3, 5, 12, 65, 2, 1.5, 8, 1.3, 55, 23, 5, 8, 2, 90]
+        time.sleep(times[random.randint(0, len(times) - 1)])
         # print(self.start_urls, 'bershka' in response.request.url )
         total = ''
         products = []
@@ -40,11 +42,14 @@ class HMSpider(scrapy.Spider):
         next = response.css('.filter-pagination::text').get()
         total = next.split(' articoli')[0]
         for prd in products:
+            times = [3, 5, 12, 65, 2, 1.5, 8, 1.3, 55, 23, 5, 8, 2, 90]
+            time.sleep(times[random.randint(0, len(times) - 1)])
             yield scrapy.Request(url='https://www2.hm.com' + prd, callback=self.parseitem, cb_kwargs={'total': total})
         # scrapy.Request(url=next, callback=self.parse)
 
     def parseitem(self, response, total):
-        time.sleep(3)
+        times = [3, 5, 12, 65, 2, 1.5, 8, 1.3, 55, 23, 5, 8, 2, 90]
+        time.sleep(times[random.randint(0, len(times) - 1)])
         results = {'items': [], 'total': total}
         result = ClothesItem()  # build item for the JSON file
         result['id'] = 'HM' + \
