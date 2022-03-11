@@ -43,8 +43,11 @@ class AsosSpider(scrapy.Spider):
             total = next.split('di ')[1].split(' prodotti')[0]
         for prd in products:
             times = [3, 5, 12, 35, 2, 1.5, 8, 1.3, 25.1, 23, 5, 8, 2, 30.4]
-            time.sleep(times[random.randint(0, len(times) - 1)])
-            yield scrapy.Request(url=prd, callback=self.parseitem, cb_kwargs={'total': total})
+            try:
+                time.sleep(times[random.randint(0, len(times) - 1)])
+                yield scrapy.Request(url=prd, callback=self.parseitem, cb_kwargs={'total': total})
+            except:
+                print("there was an error")
         # scrapy.Request(url=next, callback=self.parse)
 
     def parseitem(self, response, total):

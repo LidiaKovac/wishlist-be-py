@@ -11,13 +11,12 @@ BOT_NAME = 'fashionscraper'
 
 SPIDER_MODULES = ['fashionscraper.spiders']
 NEWSPIDER_MODULE = 'fashionscraper.spiders'
-FEED_URI = 'clothes.json'
-FEED_FORMAT = 'json'
+FEED = 'clothes.json'
 CLOSESPIDER_TIMEOUT = 100
 LOG_LEVEL = "ERROR"
 # CONCURRENT_REQUESTS = 10
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36'
+USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36 OPR/83.0.4254.70'
 DEFAULT_REQUEST_HEADERS = {
     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp, image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
     'Accept-Encoding': 'gzip',

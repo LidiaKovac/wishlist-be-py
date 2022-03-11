@@ -19817,3 +19817,79 @@ DEBUG: Retrying <GET https://www.aboutyou.it/p/adidas-originals/felpa-5598818> (
 DEBUG: Retrying <GET https://www.aboutyou.it/p/adidas-originals/felpa-6749792> (failed 2 times): [<twisted.python.failure.Failure twisted.internet.error.ConnectionLost: Connection to the other side was lost in a non-clean fashion: Connection lost.>]
 DEBUG: Scraped from <200 https://www.aboutyou.it/p/levi-s/maglietta-6928649>
 {'items': [{'title': 'Maglietta', 'images': ['https://cdn.aboutstatic.com/file/images/4f9d07908cee3d21d28fca4e03567d37.jpg?brightness=0.96&quality=75&trim=1&height=480&width=360', 'https://cdn.aboutstatic.com/file/images/37fb972ad66d014bc8d7514d85b5d4f6.jpg?quality=75&height=480&width=360', 'https://cdn.aboutstatic.com/file/images/22889b618dac3882665cc3d9817fd3d7.jpg?brightness=0.96&quality=75&trim=1&height=480&width=360', 'https://cdn.aboutstatic.com/file/images/cd6db582526872e6fb83d6933adc6f6e.jpg?quality=75&height=480&width=360', 'https://cdn.aboutstatic.com/file/images/0ebe862bfc25a9e33bce87c21e274aa0.jpg?quality=75&height=480&width=360', 'https://cdn.aboutstatic.com/file/images/d6328111f7851360e6621b330a5e1084.jpg?quality=75&height=480&width=360', 'https://cdn.aboutstatic.com/file/images/c224ac31571c53ba5dba8acbbe23dcbf.jpg?quality=75&height=480&width=360'], 'url': 'https://www.aboutyou.it/p/levi-s/maglietta-6928649', 'internal_id': 'ABOUTYOU6928649'}], 'total': '132.913'}
+INFO: Log opened.
+INFO:  * Restarting with stat
+INFO: Log opened.
+INFO:  * Detected change in 'C:\\Users\\Lidia\\Documents\\GitHub\\wishlist-be-py\\fashionscraper\\fashionscraper\\spiders\\asos.py', reloading
+INFO:  * Restarting with stat
+INFO: Log opened.
+INFO: Overridden settings:
+{}
+INFO: Telnet Password: 9104f210361a3ec2
+INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+INFO: []
+INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+INFO: Enabled item pipelines:
+[]
+INFO: Spider opened
+INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+INFO: TelnetConsole starting on 6023
+INFO: Telnet console listening on 127.0.0.1:6023
+DEBUG: Crawled (200) <GET https://www.asos.com/it/search/?q=donna&page=1> (referer: None)
+DEBUG: Crawled (200) <GET https://www.asos.com/it/michael-kors/michael-kors-runway-orologio-da-donna-slim-oro-rosa/prd/202262836?clr=rosa-oro&colourWayId=202262842&SearchQuery=donna> (referer: https://www.asos.com/it/search/?q=donna&page=1)
+INFO: Crawled 2 pages (at 2 pages/min), scraped 0 items (at 0 items/min)
+DEBUG: Crawled (200) <GET https://www.asos.com/it/ray-ban/ray-ban-occhiali-da-sole-da-donna-oversize-marroni-squadrati-0rb8065/prd/200211861?clr=marrone&colourWayId=200211862&SearchQuery=donna> (referer: https://www.asos.com/it/search/?q=donna&page=1)
+DEBUG: Scraped from <200 https://www.asos.com/it/michael-kors/michael-kors-runway-orologio-da-donna-slim-oro-rosa/prd/202262836?clr=rosa-oro&colourWayId=202262842&SearchQuery=donna>
+{'items': [{'title': 'Michael Kors - Runway - Orologio da donna slim oro rosa', 'images': ['https://images.asos-media.com/products/michael-kors-runway-orologio-da-donna-slim-oro-rosa/202262836-1-rosegold?$n_240w$&wid=40&fit=constrain', 'https://images.asos-media.com/products/michael-kors-runway-orologio-da-donna-slim-oro-rosa/202262836-2?$n_240w$&wid=40&fit=constrain', 'https://images.asos-media.com/products/michael-kors-runway-orologio-da-donna-slim-oro-rosa/202262836-3?$n_240w$&wid=40&fit=constrain', 'https://images.asos-media.com/products/michael-kors-runway-orologio-da-donna-slim-oro-rosa/202262836-4?$n_240w$&wid=40&fit=constrain', 'https://images.asos-media.com/products/michael-kors-runway-orologio-da-donna-slim-oro-rosa/202262836-1-rosegold?$n_640w$&wid=513&fit=constrain'], 'url': 'https://www.asos.com/it/michael-kors/michael-kors-runway-orologio-da-donna-slim-oro-rosa/prd/202262836?clr=rosa-oro&colourWayId=202262842&SearchQuery=donna', 'internal_id': 'ASOS202262836'}], 'total': '119.311'}
+DEBUG: Retrying <GET https://www.asos.com/it/calvin-klein/calvin-klein-circle-of-women-completo-intimo-in-microfibra-riciclata-color-legno-di-sandalo/grp/74508?clr=legno-di-sandalo&colourWayId=201267081&SearchQuery=donna#201267078> (failed 1 times): [<twisted.python.failure.Failure twisted.internet.error.ConnectionLost: Connection to the other side was lost in a non-clean fashion: Connection lost.>]
+DEBUG: Crawled (200) <GET https://www.asos.com/it/ray-ban/ray-ban-erika-occhiali-da-sole-rotondi-a-goccia-da-donna-marroni-0rb4171/prd/200211920?clr=marrone-trasparente&colourWayId=200211921&SearchQuery=donna> (referer: https://www.asos.com/it/search/?q=donna&page=1)
+DEBUG: Scraped from <200 https://www.asos.com/it/ray-ban/ray-ban-occhiali-da-sole-da-donna-oversize-marroni-squadrati-0rb8065/prd/200211861?clr=marrone&colourWayId=200211862&SearchQuery=donna>
+{'items': [{'title': 'Ray-Ban - Occhiali da sole da donna oversize marroni squadrati 0RB8065', 'images': ['https://images.asos-media.com/products/ray-ban-occhiali-da-sole-da-donna-oversize-marroni-squadrati-0rb8065/200211861-1-brown?$n_240w$&wid=40&fit=constrain', 'https://images.asos-media.com/products/ray-ban-occhiali-da-sole-da-donna-oversize-marroni-squadrati-0rb8065/200211861-2?$n_240w$&wid=40&fit=constrain', 'https://images.asos-media.com/products/ray-ban-occhiali-da-sole-da-donna-oversize-marroni-squadrati-0rb8065/200211861-3?$n_240w$&wid=40&fit=constrain', 'https://images.asos-media.com/products/ray-ban-occhiali-da-sole-da-donna-oversize-marroni-squadrati-0rb8065/200211861-4?$n_240w$&wid=40&fit=constrain', 'https://images.asos-media.com/products/ray-ban-occhiali-da-sole-da-donna-oversize-marroni-squadrati-0rb8065/200211861-1-brown?$n_640w$&wid=513&fit=constrain'], 'url': 'https://www.asos.com/it/ray-ban/ray-ban-occhiali-da-sole-da-donna-oversize-marroni-squadrati-0rb8065/prd/200211861?clr=marrone&colourWayId=200211862&SearchQuery=donna', 'internal_id': 'ASOS200211861'}], 'total': '119.311'}
+INFO: Crawled 4 pages (at 2 pages/min), scraped 2 items (at 2 items/min)
+DEBUG: Crawled (200) <GET https://www.asos.com/it/spitfire/spitfire-cut-twenty-seven-occhiali-per-luce-blu-da-donna-trasparenti/prd/200221436?clr=trasparente&colourWayId=200221440&SearchQuery=donna> (referer: https://www.asos.com/it/search/?q=donna&page=1)
+DEBUG: Scraped from <200 https://www.asos.com/it/ray-ban/ray-ban-erika-occhiali-da-sole-rotondi-a-goccia-da-donna-marroni-0rb4171/prd/200211920?clr=marrone-trasparente&colourWayId=200211921&SearchQuery=donna>
+{'items': [{'title': 'Ray-Ban - Erika - Occhiali da sole rotondi a goccia da donna marroni 0RB4171', 'images': ['https://images.asos-media.com/products/ray-ban-erika-occhiali-da-sole-rotondi-a-goccia-da-donna-marroni-0rb4171/200211920-1-transparentbrown?$n_240w$&wid=40&fit=constrain', 'https://images.asos-media.com/products/ray-ban-erika-occhiali-da-sole-rotondi-a-goccia-da-donna-marroni-0rb4171/200211920-2?$n_240w$&wid=40&fit=constrain', 'https://images.asos-media.com/products/ray-ban-erika-occhiali-da-sole-rotondi-a-goccia-da-donna-marroni-0rb4171/200211920-3?$n_240w$&wid=40&fit=constrain', 'https://images.asos-media.com/products/ray-ban-erika-occhiali-da-sole-rotondi-a-goccia-da-donna-marroni-0rb4171/200211920-4?$n_240w$&wid=40&fit=constrain', 'https://images.asos-media.com/products/ray-ban-erika-occhiali-da-sole-rotondi-a-goccia-da-donna-marroni-0rb4171/200211920-1-transparentbrown?$n_640w$&wid=513&fit=constrain'], 'url': 'https://www.asos.com/it/ray-ban/ray-ban-erika-occhiali-da-sole-rotondi-a-goccia-da-donna-marroni-0rb4171/prd/200211920?clr=marrone-trasparente&colourWayId=200211921&SearchQuery=donna', 'internal_id': 'ASOS200211920'}], 'total': '119.311'}
+DEBUG: Retrying <GET https://www.asos.com/it/ray-ban/ray-ban-erika-0rb4172-occhiali-da-sole-rotondi-a-goccia-da-donna-trasparenti/prd/200211900?clr=trasparente&colourWayId=200211904&SearchQuery=donna> (failed 1 times): [<twisted.python.failure.Failure twisted.internet.error.ConnectionLost: Connection to the other side was lost in a non-clean fashion: Connection lost.>]
+DEBUG: Retrying <GET https://www.asos.com/it/calvin-klein/calvin-klein-circle-of-women-completo-intimo-in-microfibra-riciclata-color-legno-di-sandalo/grp/74508?clr=legno-di-sandalo&colourWayId=201267081&SearchQuery=donna#201267078> (failed 2 times): [<twisted.python.failure.Failure twisted.internet.error.ConnectionLost: Connection to the other side was lost in a non-clean fashion: Connection lost.>]
+DEBUG: Retrying <GET https://www.asos.com/it/spitfire/spitfire-cut-twenty-nine-occhiali-da-sole-squadrati-da-donna-grigio-effetto-marmo/prd/200221411?clr=grigio-marmo&colourWayId=200221413&SearchQuery=donna> (failed 1 times): [<twisted.python.failure.Failure twisted.internet.error.ConnectionLost: Connection to the other side was lost in a non-clean fashion: Connection lost.>]
+DEBUG: Retrying <GET https://www.asos.com/it/akjaerbede/akjaerbede-occhiali-da-sole-oversize-da-donna-arancione-chiaro/prd/200216579?clr=arancione&colourWayId=200216580&SearchQuery=donna> (failed 1 times): [<twisted.python.failure.Failure twisted.internet.error.ConnectionLost: Connection to the other side was lost in a non-clean fashion: Connection lost.>]
+DEBUG: Crawled (200) <GET https://www.asos.com/it/calvin-klein/calvin-klein-circle-of-women-completo-intimo-nero-in-microfibra-riciclata/grp/68988?clr=nero&colourWayId=201266685&SearchQuery=donna> (referer: https://www.asos.com/it/search/?q=donna&page=1)
+DEBUG: Scraped from <200 https://www.asos.com/it/spitfire/spitfire-cut-twenty-seven-occhiali-per-luce-blu-da-donna-trasparenti/prd/200221436?clr=trasparente&colourWayId=200221440&SearchQuery=donna>
+{'items': [{'title': 'Spitfire - Cut Twenty Seven - Occhiali per luce blu da donna trasparenti', 'images': ['https://images.asos-media.com/products/spitfire-cut-twenty-seven-occhiali-per-luce-blu-da-donna-trasparenti/200221436-1-clear?$n_240w$&wid=40&fit=constrain', 'https://images.asos-media.com/products/spitfire-cut-twenty-seven-occhiali-per-luce-blu-da-donna-trasparenti/200221436-2?$n_240w$&wid=40&fit=constrain', 'https://images.asos-media.com/products/spitfire-cut-twenty-seven-occhiali-per-luce-blu-da-donna-trasparenti/200221436-3?$n_240w$&wid=40&fit=constrain', 'https://images.asos-media.com/products/spitfire-cut-twenty-seven-occhiali-per-luce-blu-da-donna-trasparenti/200221436-4?$n_240w$&wid=40&fit=constrain', 'https://images.asos-media.com/products/spitfire-cut-twenty-seven-occhiali-per-luce-blu-da-donna-trasparenti/200221436-1-clear?$n_640w$&wid=513&fit=constrain'], 'url': 'https://www.asos.com/it/spitfire/spitfire-cut-twenty-seven-occhiali-per-luce-blu-da-donna-trasparenti/prd/200221436?clr=trasparente&colourWayId=200221440&SearchQuery=donna', 'internal_id': 'ASOS200221436'}], 'total': '119.311'}
+INFO: Crawled 6 pages (at 2 pages/min), scraped 4 items (at 2 items/min)
+INFO:  * Detected change in 'C:\\Users\\Lidia\\Documents\\GitHub\\wishlist-be-py\\fashionscraper\\fashionscraper\\settings.py', reloading
+ERROR: Spider error processing <GET https://www.asos.com/it/calvin-klein/calvin-klein-circle-of-women-completo-intimo-nero-in-microfibra-riciclata/grp/68988?clr=nero&colourWayId=201266685&SearchQuery=donna> (referer: https://www.asos.com/it/search/?q=donna&page=1)
+Traceback (most recent call last):
+  File "c:\users\lidia\appdata\local\programs\python\python39\lib\site-packages\twisted\internet\defer.py", line 858, in _runCallbacks
+    current.result = callback(  # type: ignore[misc]
+  File "C:\Users\Lidia\Documents\GitHub\wishlist-be-py\fashionscraper\fashionscraper\spiders\asos.py", line 63, in parseitem
+    if response.url.split('prd/')[1].split('?clr')[0]:
+IndexError: list index out of range
+DEBUG: Crawled (200) <GET https://www.asos.com/it/calvin-klein/calvin-klein-circle-of-women-completo-intimo-nero-in-microfibra-riciclata/grp/68988?clr=nero&colourWayId=201266938&SearchQuery=donna#201266937> (referer: https://www.asos.com/it/search/?q=donna&page=1)
+INFO: Crawled 7 pages (at 1 pages/min), scraped 4 items (at 0 items/min)
+INFO: (TCP Port 6023 Closed)
+INFO:  * Restarting with stat
+INFO: Log opened.
+INFO:  * Detected change in 'C:\\Users\\Lidia\\Documents\\GitHub\\wishlist-be-py\\fashionscraper\\fashionscraper\\settings.py', reloading
+INFO:  * Restarting with stat
+INFO: Log opened.
