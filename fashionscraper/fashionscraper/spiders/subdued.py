@@ -59,12 +59,12 @@ class SubduedSpider(scrapy.Spider):
         # scrapy.Request(url=next, callback=self.parse)
 
     def parseitem(self, response, total):
-        times = [3, 5, 12, 65, 2, 1.5, 8, 1.3, 55, 23, 5, 8, 2, 90]
+        times = [3, 5, 12, 65, 2, 1.5, 8, 1.3, 5.5, 23, 5, 8, 2, 9]
         time.sleep(times[random.randint(0, len(times) - 1)])
         print(total, response.url)
         results = {'items': [], 'total': total}
         result = ClothesItem()  # build item for the JSON file
-        result['id'] = 'SUBDUED' + response.css("div.sku div::text").get()
+        result['internal_id'] = 'SUBDUED' + response.css("div.sku div::text").get()
 
         raw_imgs = response.xpath(
             "//img[starts-with(@src,'https://www.subdued.com/media/catalog/product/') and not(@class)]/@src").getall()

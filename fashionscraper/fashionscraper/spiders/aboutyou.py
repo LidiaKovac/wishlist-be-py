@@ -62,7 +62,7 @@ class AboutYouSpider(scrapy.Spider):
             result['images'] = response.css(
                 "button div[data-testid='productImage'] img[data-testid='productImageView']::attr(src)").getall()
             result['url'] = response.url
-            result['id'] = 'ABOUTYOU' + response.url.split('-')[-1]
+            result['internal_id'] = 'ABOUTYOU' + response.url.split('-')[-1]
 
             results['total'] = total
             results['items'].append(dict(result))

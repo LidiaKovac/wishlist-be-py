@@ -11,6 +11,6 @@ class ClothesItem(scrapy.Item):
     title = scrapy.Field()
     images = scrapy.Field()
     url = scrapy.Field()
-    id= scrapy.Field()
+    internal_id= scrapy.Field()
     store_total = scrapy.Field()
     pass

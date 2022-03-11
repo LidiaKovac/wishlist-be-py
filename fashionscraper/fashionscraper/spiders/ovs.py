@@ -52,7 +52,7 @@ class OvsSpider(scrapy.Spider):
         time.sleep(times[random.randint(0, len(times) - 1)])
         results = {'items': [], 'total': total}
         result = ClothesItem()  # build item for the JSON file
-        result['id'] = 'OVS' + response.url.split('/')[4].split('.html')[0]
+        result['internal_id'] = 'OVS' + response.url.split('/')[4].split('.html')[0]
 
         result['images'] = [*response.css(".thumbnail-images-container div.thumbnail-image-wrapper img::attr(src)").getall()]
          

@@ -58,10 +58,10 @@ class AsosSpider(scrapy.Spider):
                 "//img[starts-with(@src,'https://images.asos-media.com/products') and not(@class)]/@src").getall()
             result['url'] = response.url
             if response.url.split('prd/')[1].split('?clr')[0]:
-                result['id'] = 'ASOS' + \
+                result['internal_id'] = 'ASOS' + \
                     response.url.split('prd/')[1].split('?clr')[0]
             else:
-                result['id'] = 'ASOS' + \
+                result['internal_id'] = 'ASOS' + \
                     response.url.split('grp/')[1].split('?clr')[0]
 
             results['total'] = total

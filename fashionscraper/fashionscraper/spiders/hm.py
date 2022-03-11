@@ -52,7 +52,7 @@ class HMSpider(scrapy.Spider):
         time.sleep(times[random.randint(0, len(times) - 1)])
         results = {'items': [], 'total': total}
         result = ClothesItem()  # build item for the JSON file
-        result['id'] = 'HM' + \
+        result['internal_id'] = 'HM' + \
             response.url.split('productpage.')[1].split('.html')[0]
 
         raw_imgs = response.xpath(
