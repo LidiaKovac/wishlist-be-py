@@ -13,7 +13,7 @@ SPIDER_MODULES = ['fashionscraper.spiders']
 NEWSPIDER_MODULE = 'fashionscraper.spiders'
 FEED_URI = 'clothes.json'
 FEED_FORMAT = 'json'
-CLOSESPIDER_TIMEOUT = 10
+CLOSESPIDER_TIMEOUT = 100
 LOG_LEVEL = "ERROR"
 # CONCURRENT_REQUESTS = 10
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
