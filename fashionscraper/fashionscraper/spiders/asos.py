@@ -42,7 +42,7 @@ class AsosSpider(scrapy.Spider):
             next = response.css('.XmcWz6U::text').get()
             total = next.split('di ')[1].split(' prodotti')[0]
         for prd in products:
-            times = [3, 5, 12, 35, 2, 1.5, 8, 1.3, 25.1, 23, 5, 8, 2, 30.4]
+            times = [3, 5, 12, 5, 2, 1.5, 8, 1.3, 7.1, 2, 5, 8, 2, 3.4]
             try:
                 time.sleep(times[random.randint(0, len(times) - 1)])
                 yield scrapy.Request(url=prd, callback=self.parseitem, cb_kwargs={'total': total})
