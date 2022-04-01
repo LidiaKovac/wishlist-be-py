@@ -50,7 +50,7 @@ class AsosSpider(scrapy.Spider):
             result['images'] = response.xpath(
                 "//img[starts-with(@src,'https://images.asos-media.com/products') and not(@class)]/@src").getall()
             result['url'] = response.url
-            if response.url.split('prd/')[1].split('?clr')[0]:
+            if "prd/" in response.url:
                 result['id'] = 'ASOS' + response.url.split('prd/')[1].split('?clr')[0]
             else:
                 result['id'] = 'ASOS' + response.url.split('grp/')[1].split('?clr')[0]
