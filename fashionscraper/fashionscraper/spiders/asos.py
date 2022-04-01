@@ -31,7 +31,7 @@ class AsosSpider(scrapy.Spider):
 
 # note: * is the equivalent of js spread op
     def parse(self, response):
-        times = [3, 5, 12, 65, 2, 1.5, 8, 1.3, 55, 23, 5, 8, 2, 90]
+        times = [3, 5, 1.8, 6.2, 2, 1.5, 8, 1.3, 5.2, 2.12, 5, 8, 2, 10]
         time.sleep(times[random.randint(0, len(times) - 1)])
         # print(self.start_urls, 'bershka' in response.request.url )
         total = ''
